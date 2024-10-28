@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form action="" method="post">
+    <form action='{{ route('task.create') }}' method="post">
         @csrf
         <input type="text" name="title">
         <input type="text" name="description">

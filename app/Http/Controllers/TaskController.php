@@ -25,7 +25,7 @@ class TaskController extends Controller
     {
         $task = Task::create($request->all());
 
-        return redirect("/");
+        return redirect()->route('task.index');
     }
 
     public function edit(Task $task)
@@ -39,13 +39,13 @@ class TaskController extends Controller
     {
         $task->update($request->all());
 
-        return redirect("/");
+        return redirect()->route('task.index');
     }
 
     public function destroy(Task $task)
     {
         $task->delete();
 
-        return redirect("/");
+        return redirect()->route('task.index');
     }
 }

@@ -25,8 +25,8 @@
                     <td>{{ $task->description }}</td>
                     <td>{{ $task->completed }}</td>
                     <td>
-                        <a href={{ URL::to('update-task', $task->id) }}>Cập nhật</a>
-                        <form action={{ URL::to('/delete-task', $task->id) }} method="POST">
+                        <a href='{{ route('task.edit', $task->id) }}'>Cập nhật</a>
+                        <form action='{{ route('task.destroy', $task->id) }}' method="POST">
                             @method('delete')
                             @csrf
                             <button type="submit">Xóa</button>

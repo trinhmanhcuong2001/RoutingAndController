@@ -9,11 +9,11 @@
 </head>
 
 <body>
-    <form action="" method="POST">
+    <form action='{{ route('task.update', $task->id) }}' method="POST">
         @method('PUT')
         @csrf
-        <input type="text" name="title" value={{ $task->title }}>
-        <input type="text" name="description" value={{ $task->description }}>
+        <input type="text" name="title" value='{{ $task->title }}'>
+        <input type="text" name="description" value='{{ $task->description }}'>
         <select name="completed">
             <option value="Chưa hoàn thành" {{ $task->completed == 'Chưa hoàn thành' ? 'seleted' : '' }}>Chưa hoàn thành
             </option>
