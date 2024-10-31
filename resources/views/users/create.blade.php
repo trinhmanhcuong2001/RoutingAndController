@@ -1,21 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
+@extends('layout')
+@section('content')
     <form action="{{ route('user.store') }}" method="POST">
         @csrf
-        <input type="text" name="name" placeholder="Nhập tên">
-        <input type="email" name="email" placeholder="Nhập email">
-        <input type="password" name="password" placeholder="Nhật mật khẩu">
-        <button type="submit">Tạo</button>
-    </form>
-</body>
+        <legend>Create User</legend>
+        <div class="mb-3">
+            <label for="nameTextInput" class="form-label">Tên</label>
+            <input type="text" id="nameTextInput" class="form-control" placeholder="Enter name" name="name">
+        </div>
+        <div class="mb-3">
+            <label for="emailTextInput" class="form-label">Email</label>
+            <input type="text" id="emailTextInput" class="form-control" placeholder="Enter email" name="email">
+        </div>
+        <div class="mb-3">
+            <label for="passwordTextInput" class="form-label">Mật khẩu</label>
+            <input type="password" id="passwordTextInput" class="form-control" placeholder="Enter password" name="password">
+        </div>
 
-</html>
+        <button type="submit" class="btn btn-primary">Tạo</button>
+
+    </form>
+@endsection
