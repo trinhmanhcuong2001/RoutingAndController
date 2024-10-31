@@ -1,24 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
+@extends('layout')
+@section('content')
     <form action='{{ route('task.create') }}' method="post">
         @csrf
-        <input type="text" name="title">
-        <input type="text" name="description">
-        <select name="completed">
-            <option value="Chưa hoàn thành">Chưa hoàn thành</option>
-            <option value="Hoàn thành">Hoàn thành</option>
-        </select>
-        <button type="submit">Tạo</button>
-    </form>
-</body>
+        <legend>Create Task</legend>
+        <div class="mb-3">
+            <label for="titleTextInput" class="form-label">Tiêu đề</label>
+            <input type="text" id="titleTextInput" class="form-control" placeholder="Enter title" name="title">
+        </div>
+        <div class="mb-3">
+            <label for="descriptionTextInput" class="form-label">Tiêu đề</label>
+            <input type="text" id="descriptionTextInput" class="form-control" placeholder="Enter description"
+                name="description">
+        </div>
+        <div class="mb-3">
+            <label for="disabledSelect" class="form-label">Trạng thái</label>
+            <select id="disabledSelect" class="form-select" name="completed">
+                <option value="Chưa hoàn thành">Chưa hoàn thành</option>
+                <option value="Hoàn thành">Hoàn thành</option>
+            </select>
+        </div>
 
-</html>
+        <button type="submit" class="btn btn-primary">Tạo</button>
+
+    </form>
+@endsection
