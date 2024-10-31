@@ -1,26 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
-    <form action="" method="POST">
+@extends('layout')
+@section('content')
+    <form action="" method="post">
         @method('PUT')
         @csrf
-        <input type="text" name="title" value={{ $task->title }}>
-        <input type="text" name="description" value={{ $task->description }}>
-        <select name="completed">
-            <option value="Chưa hoàn thành" {{ $task->completed == 'Chưa hoàn thành' ? 'seleted' : '' }}>Chưa hoàn thành
-            </option>
-            <option value="Hoàn thành" {{ $task->completed == 'Hoàn thành' ? 'seleted' : '' }}>Hoàn thành</option>
-        </select>
-        <button type="submit">Cập nhật</button>
-    </form>
-</body>
 
-</html>
+        <legend>Update Task</legend>
+        <div class="mb-3">
+            <label for="titleTextInput" class="form-label">Tiêu đề</label>
+            <input type="text" id="titleTextInput" class="form-control" placeholder="Enter title" name="title"
+                value={{ $task->title }}>
+        </div>
+        <div class="mb-3">
+            <label for="descriptionTextInput" class="form-label">Tiêu đề</label>
+            <input type="text" id="descriptionTextInput" class="form-control" placeholder="Enter description"
+                name="description" value={{ $task->description }}>
+        </div>
+        <div class="mb-3">
+            <label for="disabledSelect" class="form-label">Trạng thái</label>
+            <select id="disabledSelect" class="form-select" name="completed">
+                <option value="Chưa hoàn thành" {{ $task->completed == 'Chưa hoàn thành' ? 'selected' : '' }}>Chưa hoàn
+                    thành
+                </option>
+                <option value="Hoàn thành" {{ $task->completed == 'Hoàn thành' ? 'selected' : '' }}>Hoàn thành</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Cập nhật</button>
+
+    </form>
+@endsection
